@@ -1,0 +1,56 @@
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
+
+.imglogo{
+    margin: 10px; 
+    width:60px;
+}
+.header{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.footer {
+    background-color: #333; 
+    color: white; 
+    padding: 20px; 
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Position the footer at the bottom of the viewport */
+    width: 100%; 
+  }
+  
+h1{
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-weight:900;
+}
+li{
+    margin-left: 15px; 
+    
+}
+/* ul{
+    display: inline-block;
+} */
+nav{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 30%;
+}
+nav > li{
+    padding:10px;
+}
+
+.containerul{
+    list-style: none;
+    /* text-align: center; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-weight: 600;
+    /* float: right; */
+    /* margin-left: 50%; */
+}
