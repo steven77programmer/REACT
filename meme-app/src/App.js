@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Jokes from './components/Jokes.js';
+import jokesData from './components/JokesData.js'
 function App() {
+  //const colors=["red","orange","yellow","black","blue","green"];
+  //const numbers=[1,2,3,4,4,5,5,6];//h3 can added here to by hard coding
+  //const num
+  const jokeElements = jokesData.map(joke => {
+    return <Jokes
+    setup={joke.setup}
+    punchline={joke.punchline}
+    />
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div>
+    //   {colors}<br/>
+    //  <h3>{numbers}</h3> 
+    // </div>
+    <div>
+{jokeElements}
     </div>
+
   );
 }
 
