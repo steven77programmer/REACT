@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.counter{
+  display: flex;
+  flex-direction: row;
+  gap:0px;
+  justify-content: center;
+  align-items:end;
+  background: rgb(32, 32, 32);
+}
+.counter--plus,.counter--minus{
+  border:1px solid black;
+border-radius: 50px;
+height: 50px;
+width:50px;
+font-size: 25px;
+color:whitesmoke;
+background: rgb(102, 101, 101);
+margin-bottom: 20px;
+z-index:2;
+}
+.counter--plus{
+/* margin-right:20px; */
+margin-left:-20px;
+}
+.counter--minus{
+  /* margin-left:20px; */
+  margin-right:-20px;
+}
+.counter h1{
+  border-radius: 50px;
+  text-align: center;
+  align-content: center;
+  height: 100px;
+width:100px;
+color:rgb(0, 0, 0);
+background: rgb(244, 241, 241);
+}

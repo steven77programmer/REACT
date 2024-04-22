@@ -3,23 +3,46 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 //import App from './App';
+import Counter from './components/Counter.js';
 import reportWebVitals from './reportWebVitals';
+
+//practise
 /*
 function App(){
   // const thingsarray=["thing 1","thing 2"];
-  const [things, setThings]=React.useState(["thing 1","thing 2"]);
+ const [thingsarray,setThingsArray] = React.useState(["thing 1","thing 2"]);
+
+  function additem(){
+ setThingsArray(prev=>[...prev,`thing ${prev.length+1}`])
+    }
+  
+  const elements=thingsarray.map(thing=><p key={thing}>{thing}</p>)
+  return(
+    <div>
+      <button onClick={additem}>Add item</button>
+{elements}
+    </div>
+  )
+}
+*/
+/*
+//add items
+function App(){
+  // const thingsarray=["thing 1","thing 2"];
+  const [things, setThings]=React.useState(["thing 1","thing 2"]);//intialised as an array
 
   function additem(){
     console.log('add item');
     //thingsarray.push("things "+(thingsarray.length+1));
     const newThingText=`thing ${things.length + 1}`
-    setThings(prevState => [...prevState, newThingText])
-   // console.log(thingsarray);
+    setThings(prevState => [...prevState, newThingText])//should return array
+   //...prevState -> spreading the array
+    // console.log(thingsarray);
     //App();
     }
   
   // const elements=thingsarray.map(thing=>{
-    const elements=things.map(thing=>{
+    const elements=things.map(thing=>{//array expected as things
     return <p key={thing}>{thing}</p>;
   });
   return(
@@ -31,6 +54,7 @@ function App(){
 }
 */
 /*
+//greeting
 function greeting(name){
   const curDate = new Date();
 const curTime=curDate.getHours();//getTime gives time form 1970 jan 1
@@ -59,6 +83,8 @@ Time
   )
 }
 */
+/*
+//useState
 function App(){
   //we can destructue in while importing see at the top
   //const result=React.useState("Yes")//gets an array
@@ -66,25 +92,70 @@ function App(){
   //we can destructure it while recieving itself to make it easier
   //const [result,func]=React.useState("Yes")
   //func used to update the state and convetion to use set and var name
-  const [result,setResult]=React.useState("Yes")
+  const [result,setResult]=React.useState(true)
   function handleClick(){
-    if(result==="Yes")
-    setResult("No");
-  else
-  setResult("Yes");
+  //   if(result)
+  //   setResult(false);
+  // else
+  // setResult(true);
+  setResult(prev=>!prev)
   }
 
   return(
 <div>
-    <h1>Is state important to know?</h1>
+    {// <h1>Is state important to know?</h1> }
+    <h1>Do I feel like going out tonight?</h1>
 <div onClick={handleClick}>
-  <h1>{result}</h1>
+  <h1>{result?"Yes":"No"}</h1>
 </div>
   </div>
   )
   
  }
+ */
 
+
+function App()
+{
+  const [counter,setCounter]=React.useState(0);
+  function handleClickplus(){
+//setCounter(counter+1)
+//better practice is using callback function
+// setCounter(function(oldValue){
+//   return oldValue+1;
+// })
+/*
+If you ever need the old value of state to help
+ you determine the new value of state, you should
+ pass a callback functionto your state setter
+  function instead of using you state directly.
+  This callback function will recieve the old 
+  value of state as its parameter, which you can use
+   to determine your new value of state
+  */
+setCounter(prev=>prev+1);
+  }
+  function handleClickminus(){
+// setCounter(counter-1)
+// setCounter(function(oldValue){
+//   return oldValue-1;
+// })  
+setCounter(prev=>prev-1);
+}
+  return (
+    <div className="counter">
+      <button className="counter--minus" onClick={handleClickminus}>-</button>
+      {/* <div className="counter--count">
+<h1>{counter}</h1>
+      </div> */}
+      <Counter
+      key={counter}
+      number={counter}
+      />
+<button className="counter--plus" onClick={handleClickplus}>+</button>
+    </div>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

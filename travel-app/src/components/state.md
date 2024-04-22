@@ -14,3 +14,15 @@ anytime you want a component to maintain a value from within the component and r
 immutbale means the variables whose value can be modified like the const variable.
 props are immutable while state is mutable.
 by changing props it defines the purpose. it may show warning.
+
+---2---
+
+1. You have 2 options for what you can pass into a state setter function(e.g 'setCount'). What are they?
+the new state itself or else a callback function
+
+
+2. When would you want to pass the first option (from answer above) to the state setter function?
+call back function, whenever you do need the previous value to determine the new value
+
+3.When would you want to pass the second option (from answer above) to the state setter function?
+if the new state is not related to the previous state
