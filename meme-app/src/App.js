@@ -1,34 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
-// import Jokes from './components/Jokes.js';
-// import jokesData from './components/JokesData.js'
+import Jokes from './components2/Jokes.js';
+import jokesData from './components2/JokesData.js'
 
-import Header from './components/Header.js';
-import Form from './components/Form.js';
+// import Header from './components/Header.js';
+// import Form from './components/Form.js';
 function App() {
   //const colors=["red","orange","yellow","black","blue","green"];
   //const numbers=[1,2,3,4,4,5,5,6];//h3 can added here to by hard coding
   //const num
 
-  // const jokeElements = jokesData.map(joke => {
-  //   return <Jokes
-  //   setup={joke.setup}
-  //   punchline={joke.punchline}
-  //   />
-  // }
-// )
+  const jokeElements = jokesData.map(joke => {
+    return <Jokes
+    setup={joke.setup}
+    punchline={joke.punchline}
+    />
+  }
+)
   return (
     // <div>
     //   {colors}<br/>
     //  <h3>{numbers}</h3> 
     // </div>
     <div>
-{/* {jokeElements} */}
-<Header/>
-<Form/>
+{jokeElements}
+{/* <Header/>
+<Form/> */}
     </div>
 
   );
 }
+// function App() {
+//   return (
+//     <div>
+// <Header/>
+// <Form/>
+//     </div>
+//   );
+// }
 
 export default App;
