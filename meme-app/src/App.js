@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Jokes from './components2/Jokes.js';
-import jokesData from './components2/JokesData.js'
+// import Jokes from './components2/Jokes.js';
+// import jokesData from './components2/JokesData.js'
 
-// import Header from './components/Header.js';
-// import Form from './components/Form.js';
+import Header from './components/Header.js';
+import Form from './components/Form.js';
+/*
 function App() {
   //const colors=["red","orange","yellow","black","blue","green"];
   //const numbers=[1,2,3,4,4,5,5,6];//h3 can added here to by hard coding
@@ -24,19 +25,20 @@ function App() {
     // </div>
     <div>
 {jokeElements}
-{/* <Header/>
-<Form/> */}
+{// <Header/>
+//<Form/> }
     </div>
 
   );
 }
-// function App() {
-//   return (
-//     <div>
-// <Header/>
-// <Form/>
-//     </div>
-//   );
-// }
+*/
+function App() {
+  return (
+    <div>
+<Header/>
+<Form/>
+    </div>
+  );
+}
 
 export default App;
