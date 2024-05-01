@@ -1,0 +1,196 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+/*
+font-color:#2B283A;
+sub-font-color:#4A4E74;
+dice-color:#FFFFFF;
+main-color:#F5F5F5;
+background-color:#0B2434;
+dice-select-color:#59E391;
+button-color:#5035FF;
+
+sub-text
+Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
+
+*/
+
+.App{
+  background:#0B2434;
+  padding:4%;
+  display: flex;
+  flex-direction: row ;
+  flex-wrap: wrap;
+  gap:100%;
+  justify-content: center;
+}
+
+.App main{
+  background: #F5F5F5;
+ height:400px;
+ max-width:800px;
+ border-radius:5px;
+ display: flex;
+ flex-direction: column;
+  /* justify-content: center; */
+ align-items: center;
+ text-align: center;
+
+}
+
+.App main .Header{
+  width:47%;
+  /* border:2px solid black; */
+  text-align: center;
+}
+.App main .Header h1{
+  font-family: 'Karla', sans-serif;
+  color:#2B283A;
+  font-weight: 550;
+  margin-bottom: 0px;
+}
+.App main .Header h4{
+  font-family: 'inter', sans-serif;
+  color:#4A4E74;
+  font-weight: 300;
+  margin-top: 0px;
+  
+}
+.App main button{
+  background:#5035FF;
+  border:1px solid #5035FF;
+  color:white;
+  border-radius: 4px ;
+  font-size: 1.2rem;
+  padding:10px 35px;
+  box-shadow: 0px 1px 5px rgb(90, 90, 91,0.6);
+  margin-top: 4%;
+  cursor: pointer;
+}
+/* .App main button::after{
+outline: none;
+} */
+/* DIE */
+/* .App main .diecont{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+gap:25px;
+padding: 10px 20%;
+margin-left:5%;
+} */
+
+.App main .diecont{
+  display: grid;
+grid-template: auto auto/ repeat(5,1fr);
+gap:20px;
+  }
+  /*
+.App main .diecont .die{
+  width:50px;
+  height:45px;
+ 
+  display:flex;
+  flex-wrap: wrap;
+  
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+  background: #FFFFFF;
+  color:black;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 4px ;
+  cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  box-shadow: 0px 1px 4px rgb(90, 90, 91);
+ 
+}
+
+.App main .diecont .die .dot{
+ 
+  width:5px;
+  height:5px;
+  background-color: black;
+  border-radius: 50%;
+  margin: 1.5px; 
+
+}
+*/
+
+.App main .diecont .die{
+  width:50px;
+  height:45px;
+ 
+  position: relative;
+  background: #FFFFFF;
+  
+  border-radius: 4px ;
+  cursor: pointer;
+ 
+  box-shadow: 0px 1px 4px rgb(90, 90, 91);
+ 
+}
+
+.App main .diecont .die .dot{
+  --top: 0%;
+	--left: 0%;
+
+	width: 7px;
+	height: 7px;
+	background-color: #000000;
+	border-radius: 50%;
+
+	/* Dot Positioning */
+	position: absolute;
+	top: var(--top);
+	left: var(--left);
+	transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1));
+
+}
+
+.App main .diecont .die::after{
+  outline: none;
+  }
+  .App main .diecont .die.selected{
+    background: #59E391;
+    
+  }
+  .App .game-info{
+    color:rgb(203, 202, 255);
+  }
