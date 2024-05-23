@@ -210,6 +210,7 @@ return arr;
   // })
 
 }
+//let rollCount = 0;
 function rollDice(){
 //
 setRolls(prevCount=>prevCount+1);
@@ -226,7 +227,9 @@ setDice(prevArr=>
   //   }
   //  else
   //  return obj;
-  return obj.isHeld? obj: generatenewDie()
+  // setTimeout(() => {
+    return obj.isHeld? obj: generatenewDie()
+  // }, 1000);
   }
 )
 )
@@ -273,7 +276,12 @@ const diceElements=dice.map(
   id={die.id} 
   value={die.value} 
   isHeld={die.isHeld} 
-  changeHeld={changeHeld}/>)
+  changeHeld={changeHeld}
+  rollCount={rolls}
+  // className={
+  //   rolls < 1 ? (die.isHeld?'die selected' : 'die'):(die.isHeld?'die selected' : 'die rolling')
+  // }
+  />)
  // console.log(dice);
   return (
     <div className="App">

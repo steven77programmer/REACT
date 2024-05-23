@@ -1,3 +1,4 @@
+/*
 import React from "react";
 //import { DiVim } from "react-icons/di";
 
@@ -70,3 +71,4 @@ return(
 )
 }
 export default Die;
+*/
