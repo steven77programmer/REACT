@@ -3,6 +3,7 @@ import blob1 from '../images/blob1.svg';
 import blob2 from '../images/blob2.svg';
 import Frame from './Frame.js';
 import { nanoid } from "nanoid";
+import Confetti from 'react-confetti';
 
 const QuestionPage = () => {
   const [allQuestions, setAllQuestions] = React.useState([]);
@@ -114,7 +115,7 @@ const QuestionPage = () => {
       
       <div className="quessect">
         {frameElements}
-        {/* {correctAnswersCount==6?} */}
+        {correctAnswersCount===6 && <Confetti width={1500}/>}
         {quizChecked && <div className="result">Correct Answers: {correctAnswersCount}/{allQuestions.length}</div>}
         <button className="check" onClick={quizChecked ? playAgain : checkAnswers}> {quizChecked ? "Play again" : "Check answers"}</button>
         
