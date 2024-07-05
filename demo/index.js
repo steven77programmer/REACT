@@ -1,3 +1,7 @@
+    //import {React} from 'react';
+
+//const { useMemo } = require("react");
+
     
     /*  
     //creating react component
@@ -303,7 +307,133 @@ function Page(){
 //import Header from "./Header.js";
 //leftover header
 // const Header = require('./Header.js');
+//import { Queue } from '@datastructures-js/queue';
+
+//import { Queue } from './Queue.js';
+
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+
+  enqueue(element) {
+    this.items.push(element);
+  }
+
+  dequeue() {
+    if (this.isEmpty()) {
+      return "Queue is empty";
+    }
+    return this.items.shift();
+  }
+}
 function Main(){
+//OLA question
+//create a shape based on the 2d data
+//empty box where value ===1
+//when value === 0 then render nothing
+//we can select a box and change bgColor to green
+//deselect in the order of selection
+//disable any interaction
+//DS? Array? Object? Something?
+  // const threedarr=[
+  //   [1,1,1],
+  //   [1,0,0],
+  //   [1,1,1]
+  // ];
+
+  
+
+//const queue = new Queue();
+const threedarr=[1,1,1,1,0,0,1,1,1];
+  //const [clickedstate,setClickedstate]=React.useState(queue);
+ // const [clickedstate,setClickedstate]=React.useState([]);
+ const [clickedstate,setClickedstate]=React.useState(new Set());
+const [unloading,setUnloading]=React.useState(false);
+  //console.log(clickedstate);
+  
+  
+  
+  // function reversing(){
+  //   console.log("time to reverse...");
+    // setInterval()=>{
+
+    // }
+    const countOfVisibleBoxes = React.useMemo(()=>{
+      return threedarr.reduce((count,box)=>{
+        if(box===1) 
+         count+=1;
+        return count;
+     
+     //countt=count;
+  },0)
+    },[]) 
+    //console.log(countOfVisibleBoxes);
+
+    const unload =()=>{
+     // console.log("reverse")
+      setUnloading(prev=>!prev);
+      const keys= Array.from(clickedstate.keys());
+      const removeNextKey =()=>{
+       if(keys.length){
+        const currentKey=keys.shift();
+
+        setClickedstate(prev=>{
+          const updatedKeys= new Set(prev);
+          updatedKeys.delete(currentKey);
+          return updatedKeys;
+        })
+        setTimeout(removeNextKey, 500)
+      }
+        else{
+          setUnloading(prev=>!prev);
+        }
+       
+      }
+      setTimeout(removeNextKey,300);
+    }
+    
+ // }
+  function updateboxes(e){
+  
+// setClickedstate(prev=>
+// [...prev,parseInt(e.target.id)]
+// );
+if(e.target.id ===null || unloading) return;
+setClickedstate(prev=>
+{
+  return new Set(prev.add(e.target.id))
+}
+  );
+}
+//queue.enqueue(parseInt(e.target.id))
+//console.log(queue);
+//console.log("c",clickedstate.items);
+//setClickedstate(queue);
+// if(count-1===clickedstate.length)
+//   reversing();
+   //}
+ 
+    React.useEffect(()=>{
+      if(clickedstate.size >= countOfVisibleBoxes){
+        unload();
+      }
+    },[clickedstate])
+
+  
+ //let countt=0;
+
+     
+  
+ // console.log(count);
+ const boxes=threedarr.map((box,index)=>{
+  return box===1?
+  <div key={index} id={`${index}`} 
+  className={`box ${clickedstate.has(index.toString())?'clicked':''}`} 
+  onClick={updateboxes }></div>
+  :
+  <div className="nobox"></div>
+ })
   return(
     <div>
 <h1>DEMO website</h1>
@@ -313,9 +443,14 @@ function Main(){
         <li>declaritive react</li>
         <li>open source and latest react</li>
       </ol>
+      <h1>OLA question</h1>
+      <div className="container" disable={clickedstate.length===countOfVisibleBoxes?true:false}>
+      {boxes}
+      </div>
       </div>
   )
 }
+
 function Footer(){
   return(
   <footer className="footer">
@@ -323,6 +458,7 @@ function Footer(){
 </footer>
   )
 }
+
 function Page(){
   // function Header(){
     return(
@@ -338,5 +474,6 @@ function Page(){
   // ReactDOM.render(<Nav/>, document.querySelector('#root'));
   // ReactDOM.render(<Footer/>, document.querySelector('#root'));
  ReactDOM.render(<Page/>, document.querySelector('#root'));
+
 
   

@@ -54,3 +54,29 @@ nav > li{
     /* float: right; */
     /* margin-left: 50%; */
 }
+/* 
+OLA part */
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,50px);
+    grid-template-rows: repeat(3,50px);
+    gap:10px;
+}
+.box, .nobox{
+    background-color: rgb(244, 246, 247);
+    border:1px solid black;
+    text-align:center;
+    cursor:pointer;
+    transition: background-color 0.4s;
+}
+.nobox{
+    background: none;
+    border:none;
+    pointer-events: none;
+}
+.box.clicked{
+    background-color: rgb(16, 179, 19);
+    pointer-events: none;
+    
+}
